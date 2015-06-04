@@ -15,8 +15,8 @@
         String codigo = request.getParameter("codigo");
         String correo = request.getParameter("correo");
         String contrasenia = request.getParameter("contrasenia");
-        String nombre = request.getParameter("nombre");
-        String apellido= request.getParameter("apellido");
+        String nombre = request.getParameter("nombre").toLowerCase();
+        String apellido= request.getParameter("apellido").toLowerCase();
         String documento= request.getParameter("documento");
         String sexo= request.getParameter("sexo");
         String estadoCivil= request.getParameter("estadoCivil");

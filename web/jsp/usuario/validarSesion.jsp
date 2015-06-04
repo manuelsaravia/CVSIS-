@@ -27,6 +27,7 @@
             
             //Creacion de Sesiones que se necesitaran a lo largo de la ejecucion
             session.setAttribute("tablaMaterias", "");
+            session.setAttribute("tablaFormacion", "");
             //Fin de sesiones
             
             

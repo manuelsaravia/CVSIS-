@@ -202,7 +202,7 @@
                             </form>
                             
                         </div>
-                        <div class="col-xs-offset-5">
+                        <div class="col-xs-offset-0">
                         <form action="iniciarSesion.jsp" class="form-horizontal" method="post" role="form">
                                 <div class="form-group">
                                     <div id="botones2">

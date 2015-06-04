@@ -157,43 +157,31 @@
                                                                                                <td>
                                                                                                    <div class="row">
                                                                                                    <div class="col-md-10">
-                                                                                                       <input class="form-control" id="codigoCurso" name="codigoCurso" placeholder="15624" type="number" required>
+                                                                                                       <input class="form-control" id="codigoCurso" name="codigoCurso" placeholder="15624" type="number">
                                                                                                    </div>
                                                                                                    </div>
                                                                                                </td>
                                                                                                <td>
                                                                                                    <div class="row">
                                                                                                    <div class="col-md-12">
-                                                                                                       <input class="form-control" id="nombreCurso" name="nombreCurso" placeholder="Ingenieria del Software" type="text" required>
+                                                                                                       <input class="form-control" id="nombreCurso" name="nombreCurso" placeholder="Ingenieria del Software" type="text">
                                                                                                    </div>
                                                                                                    </div>
                                                                                                </td>
                                                                                                <td>
                                                                                                    <div class="row">
                                                                                                    <div class="col-md-12">
-                                                                                                       <input class="form-control" id="semestre" name="semestre" placeholder="1/2015" type="text" required>
+                                                                                                       <input class="form-control" id="semestre" name="semestre" placeholder="1/2015" type="text">
                                                                                                    </div>
                                                                                                    </div>
                                                                                                </td>
-                                                                                               <td>
-                                                                                                   <div class="btn-group">
-                                                                                                       <button class="btn btn-warning" id="actualizar" name = "requerimiento" value="actualizarMateria" type="submit">
-                                                                                                           <span class="glyphicon glyphicon-ok"></span>
-                                                                                                       </button>
-                                                                                                   </div>
-                                                                                               </td>
-                                                                                               <td>
-                                                                                                   <div class="btn-group">
-                                                                                                       <button class="btn btn-danger" id="eliminar" name = "requerimiento" value="eliminarrMateria" type="submit">
-                                                                                                           <span class="glyphicon glyphicon-remove"></span>
-                                                                                                       </button>
-                                                                                                   </div>
-                                                                                               </td>
+                                                                                               <td></td>
+                                                                                               <td></td>
                                                                                            </tr>
                                                                                        </tbody>
                                                                                    </table>
                                                                                    <div class="btn-group">
-                                                                                       <button class="btn btn-success" id="agregar" name = "requerimiento" value="agregarMateria" type="submit">Agregar Materia
+                                                                                       <button class="btn btn-success" id="agregar" name = "requerimiento" value="agregarMateria-0" type="submit">Agregar Materia
                                                                                            <span class="glyphicon glyphicon-plus-sign"></span>
                                                                                        </button>
                                                                                    </div>

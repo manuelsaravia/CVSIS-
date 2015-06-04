@@ -28,4 +28,29 @@ public class Facade {
         AdministrarDocente ad = new AdministrarDocente();
         return ad.registrarMateria(m,d);
     }
+    
+    public String cargarMaterias(Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.cargarMaterias(d);
+    }
+    
+    public String eliminarMateria(Materia m, Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.eliminarMateria(m,d);
+    }
+    
+    public String agregarTesis(Tesis t, Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.agregarTesis(t,d);
+    }
+    
+    public String cargarFormacion(Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.cargarFormacion(d);
+    }
+    
+    public String eliminarTesis(Tesis t, Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.eliminarTesis(t,d);
+    }
 }

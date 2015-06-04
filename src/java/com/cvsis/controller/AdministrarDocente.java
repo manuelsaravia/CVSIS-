@@ -18,6 +18,31 @@ public class AdministrarDocente {
         DocenteDao dd = new DocenteDao();
         return dd.registrarMateria(m,d);
     }
+
+    public String cargarMaterias(Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.cargarMaterias(d);
+    }
+
+    public String eliminarMateria(Materia m, Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.eliminarMateria(m,d);
+    }
+
+    public String agregarTesis(Tesis t, Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.agregarTesis(t,d);
+    }
+
+    public String cargarFormacion(Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.cargarFormacion(d);
+    }
+
+    public String eliminarTesis(Tesis t, Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.eliminarTesis(t,d);
+    }
     
     
 }
