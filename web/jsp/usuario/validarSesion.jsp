@@ -28,6 +28,9 @@
             //Creacion de Sesiones que se necesitaran a lo largo de la ejecucion
             session.setAttribute("tablaMaterias", "");
             session.setAttribute("tablaFormacion", "");
+            session.setAttribute("tablaGrupos", "");
+            session.setAttribute("tablaArticulos", "");
+            session.setAttribute("tablaLibros", "");
             //Fin de sesiones
             
             

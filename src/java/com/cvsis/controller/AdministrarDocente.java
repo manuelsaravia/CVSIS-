@@ -43,6 +43,51 @@ public class AdministrarDocente {
         DocenteDao dd = new DocenteDao();
         return dd.eliminarTesis(t,d);
     }
+
+    public String agregarGrupo(Grupo g, Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.agregarGrupo(g,d);
+    }
+
+    public String cargarGrupos(Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.cargarGrupos(d);
+    }
+
+    public String eliminarGrupo(Grupo g, Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.eliminarGrupo(g,d);
+    }
+
+    public String agregarArticulo(Articulo a, Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.agregarArticulo(a,d);
+    }
+
+    public String cargarArticulos(Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.cargarArticulos(d);
+    }
+
+    public String eliminarArticulo(Articulo a, Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.eliminarArticulo(a,d);
+    }
+
+    public String agregarLibro(Libro l, Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.agregarLibro(l,d);
+    }
+
+    public String cargarLibros(Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.cargarLibros(d);
+    }
+
+    public String eliminarLibro(Libro l, Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.eliminarLibro(l,d);
+    }
     
     
 }

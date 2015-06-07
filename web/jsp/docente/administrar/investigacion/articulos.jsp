@@ -65,6 +65,15 @@
                 </div>
             
                             <div class="row">
+                                <br>
+                <%
+                    if (session.getAttribute("Mensaje") == null) {
+                        session.setAttribute("Mensaje", "");
+                    }
+                    out.print(session.getAttribute("Mensaje"));
+                    session.setAttribute("MensajeRecuperar", "");
+                    session.setAttribute("Mensaje", "");
+                %>
                                 <div class="col-md-3" id="menu">
                                     
                             
@@ -125,12 +134,13 @@
   
                                                 <li role="presentation" class="active"><a>Articulos</a></li>
   
-                                                <li role="presentation" class=""><a href="libros.jsp">Libros Investigación</a></li>
+                                                <li role="presentation" class=""><a href="cargarLibros.jsp">Libros Investigación</a></li>
  
                                             </ul>
                                             <div class="panel panel-default">
                                                 <div class="panel-body">
                                                     <div class="row">
+                                                        <form action="leerArticulo.jsp" method="post" role="form" class="form-horizontal">
                                                                                                        <div align="center">
                                                                                                            <div class="col-md-12">
                                                                                                                <div class="panel panel-default">
@@ -154,100 +164,87 @@
                                                                                                                                            <th>Pais</th>
                                                                                                                                            <th>Medio</th>
                                                                                                                                            <th></th>
-                                                                                                                                           <th></th>
                                                                                                                                        </tr>
                                                                                                                                    </thead>
                                                                                                                                    <tbody class="tablas">
+                                                                                                                                       <% out.println(session.getAttribute("tablaArticulos").toString()); %>
                                                                                                                                        <tr>
                                                                                                                                            <td>
                                                                                                                                                <div class="row">
                                                                                                                                                     <div class="col-lg-12">
-                                                                                                                                                        <input class="form-control" id="titulo" name="titulo" placeholder="Analisis de Software" type="text" required>
+                                                                                                                                                        <input class="form-control" id="titulo" name="titulo" placeholder="Analisis de Software" type="text">
                                                                                                                                                     </div>
                                                                                                                                                 </div>
                                                                                                                                            </td>
                                                                                                                                            <td>
                                                                                                                                                <div class="row">
                                                                                                                                                     <div class="col-lg-12">
-                                                                                                                                                        <input class="form-control" id="año" name="año" placeholder="2015" type="number" required>
+                                                                                                                                                        <input class="form-control" id="anio" name="anio" placeholder="2015" type="number">
                                                                                                                                                     </div>
                                                                                                                                                 </div>
                                                                                                                                            </td>
                                                                                                                                            <td>
                                                                                                                                                <div class="row">
                                                                                                                                                     <div class="col-lg-12">
-                                                                                                                                                        <input class="form-control" id="pagIni" name="pagIni" placeholder="18" type="number" required>
+                                                                                                                                                        <input class="form-control" id="pagIni" name="pagIni" placeholder="18" type="number">
                                                                                                                                                     </div>
                                                                                                                                                 </div>
                                                                                                                                            </td>
                                                                                                                                            <td>
                                                                                                                                                <div class="row">
                                                                                                                                                     <div class="col-lg-12">
-                                                                                                                                                        <input class="form-control" id="pagFin" name="pagFin" placeholder="24" type="number" required>
+                                                                                                                                                        <input class="form-control" id="pagFin" name="pagFin" placeholder="24" type="number">
                                                                                                                                                     </div>
                                                                                                                                                 </div>
                                                                                                                                            </td>
                                                                                                                                            <td>
                                                                                                                                                <div class="row">
                                                                                                                                                     <div class="col-lg-12">
-                                                                                                                                                        <input class="form-control" id="revista" name="revista" placeholder="Vive Digital" type="text" required>
+                                                                                                                                                        <input class="form-control" id="revista" name="revista" placeholder="Vive Digital" type="text">
                                                                                                                                                     </div>
                                                                                                                                                 </div>
                                                                                                                                            </td>
                                                                                                                                            <td>
                                                                                                                                                <div class="row">
                                                                                                                                                     <div class="col-lg-12">
-                                                                                                                                                        <input class="form-control" id="issn" name="issn" placeholder="2048" type="number" required>
+                                                                                                                                                        <input class="form-control" id="issn" name="issn" placeholder="2048" type="number">
                                                                                                                                                     </div>
                                                                                                                                                 </div>
                                                                                                                                            </td>
                                                                                                                                            <td>
                                                                                                                                                <div class="row">
                                                                                                                                                     <div class="col-lg-12">
-                                                                                                                                                        <input class="form-control" id="idioma" name="idioma" placeholder="Español" type="text" required>
+                                                                                                                                                        <input class="form-control" id="idioma" name="idioma" placeholder="Español" type="text">
                                                                                                                                                     </div>
                                                                                                                                                 </div>
                                                                                                                                            </td>
                                                                                                                                            <td>
                                                                                                                                                <div class="row">
                                                                                                                                                     <div class="col-lg-12">
-                                                                                                                                                        <input class="form-control" id="volumen" name="volumen" placeholder="1" type="number" required>
+                                                                                                                                                        <input class="form-control" id="volumen" name="volumen" placeholder="1" type="number">
                                                                                                                                                     </div>
                                                                                                                                                 </div>
                                                                                                                                            </td>
                                                                                                                                            <td>
                                                                                                                                                <div class="row">
                                                                                                                                                     <div class="col-lg-12">
-                                                                                                                                                        <input class="form-control" id="pais" name="pais" placeholder="Colombia" type="text" required>
+                                                                                                                                                        <input class="form-control" id="pais" name="pais" placeholder="Colombia" type="text">
                                                                                                                                                     </div>
                                                                                                                                                 </div>
                                                                                                                                            </td>
                                                                                                                                            <td>
                                                                                                                                                <div class="row">
                                                                                                                                                     <div class="col-lg-12">
-                                                                                                                                                        <input class="form-control" id="medio" name="medio" placeholder="Digital" type="text" required>
+                                                                                                                                                        <input class="form-control" id="medio" name="medio" placeholder="Digital" type="text">
                                                                                                                                                     </div>
                                                                                                                                                 </div>
                                                                                                                                            </td>
-                                                                                                                                           <td>
-                                                                                                                                               <div class="btn-group">
-                                                                                                                                                   <button class="btn btn-warning" id="actualizar" name = "requerimiento" value="actualizarArticulo" type="submit">
-                                                                                                                                                       <span class="glyphicon glyphicon-ok"></span>
-                                                                                                                                                   </button>
-                                                                                                                                               </div>
-                                                                                                                                           </td>
-                                                                                                                                           <td>
-                                                                                                                                               <div class="btn-group">
-                                                                                                                                                   <button class="btn btn-danger" id="eliminar" name = "requerimiento" value="eliminarArticulo" type="submit">
-                                                                                                                                                       <span class="glyphicon glyphicon-remove"></span>
-                                                                                                                                                   </button>
-                                                                                                                                               </div>
-                                                                                                                                           </td>
+                                                                                                                                           <td></td>
                                                                                                                                        </tr>
                                                                                                                                    </tbody>
                                                                                                                                </table>
                                                                                                                                <div class="btn-group">
-                                                                                                                                   <button class="btn btn-success" id="agregar" name = "requerimiento" value="agregarArticulo" type="submit">Agregar Articulo
+                                                                                                                                   <button class="btn btn-success" id="agregar" name = "requerimiento" value="agregarArticulo-0" type="submit">Agregar Articulo
                                                                                                                                        <span class="glyphicon glyphicon-plus-sign"></span>
                                                                                                                                    </button>
                                                                                                                                </div>
@@ -257,7 +254,7 @@
                                                                                                                </div>
                                                                                                            </div>
                                                                                                        </div>
-                                                                                                   
+                                                      </form>                                             
                                                     </div>
                                                 </div>
                                             </div>

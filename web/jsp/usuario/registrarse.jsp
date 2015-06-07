@@ -122,8 +122,8 @@
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="glyphicon glyphicon-question-sign"></span></span>
                                                         <select class="form-control" id="sexo" name="sexo">
-                                                            <option value="1">Masculino</option>
-                                                            <option value="2">Femenino</option>
+                                                            <option value="Masculino">Masculino</option>
+                                                            <option value="Femenino">Femenino</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -134,10 +134,10 @@
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="glyphicon glyphicon-question-sign"></span></span>
                                                         <select class="form-control" id="estadoCivil" name="estadoCivil">
-                                                            <option value="1">Soltero</option>
-                                                            <option value="2">Casado</option>
-                                                            <option value="3">Viudo</option>
-                                                            <option value="4">Divorsiado</option>
+                                                            <option value="Soltero">Soltero</option>
+                                                            <option value="Casado">Casado</option>
+                                                            <option value="Viudo">Viudo</option>
+                                                            <option value="Divorsiado">Divorsiado</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -148,10 +148,10 @@
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="glyphicon glyphicon-question-sign"></span></span>
                                                         <select class="form-control" id="escolaridad" name="escolaridad">
-                                                            <option value="1">Universitario</option>
-                                                            <option value="2">Especializacion</option>
-                                                            <option value="3">Maestria</option>
-                                                            <option value="4">Doctorado</option>
+                                                            <option value="Universitario">Universitario</option>
+                                                            <option value="Especializacion">Especializacion</option>
+                                                            <option value="Maestria">Maestria</option>
+                                                            <option value="Doctorado">Doctorado</option>
                                                         </select>
                                                     </div>
                                                 </div>

@@ -65,6 +65,15 @@
                 </div>
             
                             <div class="row">
+                                <br>
+                <%
+                    if (session.getAttribute("Mensaje") == null) {
+                        session.setAttribute("Mensaje", "");
+                    }
+                    out.print(session.getAttribute("Mensaje"));
+                    session.setAttribute("MensajeRecuperar", "");
+                    session.setAttribute("Mensaje", "");
+                %>
                                 <div class="col-md-3" id="menu">
                                     
                             
@@ -123,7 +132,7 @@
                                          
                                             <ul class="nav nav-pills">
   
-                                                <li role="presentation" class=""><a href="articulos.jsp">Articulos</a></li>
+                                                <li role="presentation" class=""><a href="cargarArticulos.jsp">Articulos</a></li>
   
                                                 <li role="presentation" class="active"><a>Libros Investigación</a></li>
  
@@ -131,6 +140,7 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-body">
                                                     <div class="row">
+                                                        <form action="leerLibro.jsp" method="post" role="form" class="form-horizontal">
                                                                                                        <div align="center">
                                                                                                            <div class="col-md-12 col-md-offset-0">
                                                                                                                <div class="panel panel-default">
@@ -146,101 +156,89 @@
                                                                                                                                            <th>Titulo</th> 
                                                                                                                                            <th>Editorial</th>
                                                                                                                                            <th>Año</th>
-                                                                                                                                           <th>Mes</th>
+                                                                                                                                           <th>Mes Publicacion</th>
                                                                                                                                            <th>ISBN</th>
                                                                                                                                            <th>Pais</th>
                                                                                                                                            <th>Medio</th>
                                                                                                                                            <th>Estilo</th>
                                                                                                                                            <th></th>
-                                                                                                                                           <th></th>
+                                                                                                                                           
                                                                                                                                        </tr>
                                                                                                                                    </thead>
                                                                                                                                    <tbody class="tablas"> 
+                                                                                                                                       <% out.println(session.getAttribute("tablaLibros").toString()); %>
                                                                                                                                        <tr>       
                                                                                                                                            <td>
                                                                                                                                                <div class="row">
                                                                                                                                                     <div class="col-lg-12">
-                                                                                                                                                        <input class="form-control" id="titulo" name="titulo" placeholder="Desarrollo Libre" type="text" required>
+                                                                                                                                                        <input class="form-control" id="titulo" name="titulo" placeholder="Desarrollo Libre" type="text">
                                                                                                                                                     </div>
                                                                                                                                                 </div>
                                                                                                                                            </td>
                                                                                                                                            <td>
                                                                                                                                                <div class="row">
                                                                                                                                                     <div class="col-lg-12">
-                                                                                                                                                        <input class="form-control" id="editorial" name="editorial" placeholder="Editorial Ltda." type="text" required>
+                                                                                                                                                        <input class="form-control" id="editorial" name="editorial" placeholder="Editorial Ltda." type="text">
                                                                                                                                                     </div>
                                                                                                                                                 </div>
                                                                                                                                            </td>
                                                                                                                                            <td>
                                                                                                                                                <div class="row">
                                                                                                                                                     <div class="col-lg-12">
-                                                                                                                                                        <input class="form-control" id="año" name="año" placeholder="2015" type="number" required>
+                                                                                                                                                        <input class="form-control" id="anio" name="anio" placeholder="2015" type="number">
                                                                                                                                                     </div>
                                                                                                                                                 </div>
                                                                                                                                            </td>
                                                                                                                                            <td>
                                                                                                                                                <select class="form-control" id="mes" name="mes">
-                                                                                                                                                   <option value="1">Enero</option>
-                                                                                                                                                   <option value="2">Febero</option>
-                                                                                                                                                   <option value="3">Marzo</option>
-                                                                                                                                                   <option value="4">Abril</option>
-                                                                                                                                                   <option value="5">Mayo</option>
-                                                                                                                                                   <option value="6">Junio</option>
-                                                                                                                                                   <option value="7">Julio</option>
-                                                                                                                                                   <option value="8">Agosto</option>
-                                                                                                                                                   <option value="9">Septiembre</option>
-                                                                                                                                                   <option value="10">Octubre</option>
-                                                                                                                                                   <option value="11">Noviembre</option>
-                                                                                                                                                   <option value="12">Diciembre</option>
+                                                                                                                                                   <option value="Enero">Enero</option>
+                                                                                                                                                   <option value="Febrero">Febero</option>
+                                                                                                                                                   <option value="Marzo">Marzo</option>
+                                                                                                                                                   <option value="Abril">Abril</option>
+                                                                                                                                                   <option value="Mayo">Mayo</option>
+                                                                                                                                                   <option value="Junio">Junio</option>
+                                                                                                                                                   <option value="Julio">Julio</option>
+                                                                                                                                                   <option value="Agosto">Agosto</option>
+                                                                                                                                                   <option value="Septiembre">Septiembre</option>
+                                                                                                                                                   <option value="Octubre">Octubre</option>
+                                                                                                                                                   <option value="Noviembre">Noviembre</option>
+                                                                                                                                                   <option value="Diciembre">Diciembre</option>
                                                                                                                                                </select>
                                                                                                                                            </td>
                                                                                                                                            <td>
                                                                                                                                                <div class="row">
                                                                                                                                                     <div class="col-lg-12">
-                                                                                                                                                        <input class="form-control" id="isbn" name="isbn" placeholder="248" type="number" required>
+                                                                                                                                                        <input class="form-control" id="isbn" name="isbn" placeholder="248" type="number">
                                                                                                                                                     </div>
                                                                                                                                                 </div>
                                                                                                                                            </td>
                                                                                                                                            <td>
                                                                                                                                                <div class="row">
                                                                                                                                                     <div class="col-lg-12">
-                                                                                                                                                        <input class="form-control" id="pais" name="pais" placeholder="Colombia" type="text" required>
+                                                                                                                                                        <input class="form-control" id="pais" name="pais" placeholder="Colombia" type="text">
                                                                                                                                                     </div>
                                                                                                                                                 </div>
                                                                                                                                            </td>
                                                                                                                                            <td>
                                                                                                                                                <div class="row">
                                                                                                                                                     <div class="col-lg-12">
-                                                                                                                                                        <input class="form-control" id="medio" name="medio" placeholder="Impreso" type="text" required>
+                                                                                                                                                        <input class="form-control" id="medio" name="medio" placeholder="Impreso" type="text">
                                                                                                                                                     </div>
                                                                                                                                                 </div>
                                                                                                                                            </td>
                                                                                                                                            <td>
                                                                                                                                                <div class="row">
                                                                                                                                                     <div class="col-lg-12">
-                                                                                                                                                        <input class="form-control" id="estilo" name="estilo" placeholder="Capitulo" type="text" required>
+                                                                                                                                                        <input class="form-control" id="estilo" name="estilo" placeholder="Capitulo" type="text">
                                                                                                                                                     </div>
                                                                                                                                                 </div>
                                                                                                                                            </td>
-                                                                                                                                           <td>
-                                                                                                                                               <div class="btn-group">
-                                                                                                                                                   <button class="btn btn-warning" id="actualizar" name = "requerimiento" value="actualizarLibro" type="submit">
-                                                                                                                                                       <span class="glyphicon glyphicon-ok"></span>
-                                                                                                                                                   </button>
-                                                                                                                                               </div>
-                                                                                                                                           </td>
-                                                                                                                                           <td>
-                                                                                                                                               <div class="btn-group">
-                                                                                                                                                   <button class="btn btn-danger" id="eliminar" name = "requerimiento" value="eliminarLibro" type="submit">
-                                                                                                                                                       <span class="glyphicon glyphicon-remove"></span>
-                                                                                                                                                   </button>
-                                                                                                                                               </div>
-                                                                                                                                           </td>
+                                                                                                                                           <td></td>
                                                                                                                                        </tr>
                                                                                                                                    </tbody>
                                                                                                                                </table>
                                                                                                                                <div class="btn-group">
-                                                                                                                                   <button class="btn btn-success" id="agregar" name = "requerimiento" value="agregarLibro" type="submit">Agregar Libro
+                                                                                                                                   <button class="btn btn-success" id="agregar" name = "requerimiento" value="agregarLibro-0" type="submit">Agregar Libro
                                                                                                                                        <span class="glyphicon glyphicon-plus-sign"></span>
                                                                                                                                    </button>
                                                                                                                                </div>
@@ -250,6 +248,7 @@
                                                                                                                </div>
                                                                                                            </div>
                                                                                                        </div>
+                                                        </form>
                                                                                                    
                                                     </div>
                                                 </div>

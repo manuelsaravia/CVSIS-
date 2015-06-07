@@ -52,7 +52,7 @@
             <br>
             
                 <div class="row">
-                    
+                 
                     <div class="col-xs-6 col-sm-4"></div>
                     <div class="col-xs-6 col-sm-4 hidden-xs"></div>
                     <div class="col-xs-6 col-sm-4">
@@ -65,7 +65,15 @@
                 </div>
             
                             <div class="row">
-                                
+                                 <br>
+                <%
+                    if (session.getAttribute("Mensaje") == null) {
+                        session.setAttribute("Mensaje", "");
+                    }
+                    out.print(session.getAttribute("Mensaje"));
+                    session.setAttribute("MensajeRecuperar", "");
+                    session.setAttribute("Mensaje", "");
+                %>  
                                 <div class="col-md-3" id="menu">
                                     
                             
@@ -121,6 +129,7 @@
                                     <div class="panel panel-default">
                                         <div class="panel-body">
                                             <div class="row">
+                                                <form action="leerGrupo.jsp" method="post" role="form" class="form-horizontal">
                                                                    <div align="center">
                                                                    <div class="col-md-10 col-md-offset-1">
                                                                    <div class="panel panel-default">
@@ -137,51 +146,39 @@
                                                                                                <th>Semillero</th>
                                                                                                <th>Clasificación</th>
                                                                                                <th></th>
-                                                                                               <th></th>
+                                                                                               
                                                                                            </tr>
                                                                                        </thead>
                                                                                        <tbody class="tablas">
+                                                                                           <% out.println(session.getAttribute("tablaGrupos").toString()); %>
                                                                                            <tr>
                                                                                                <td>
                                                                                                    <div class="row">
                                                                                                    <div class="col-lg-12">
-                                                                                                       <input class="form-control" id="nombre" name="nombre" placeholder="GIDIS" type="text" required>
+                                                                                                       <input class="form-control" id="nombre" name="nombre" placeholder="GIDIS" type="text">
                                                                                                    </div>
                                                                                                    </div>
                                                                                                </td>
                                                                                                <td>
                                                                                                    <div class="row">
                                                                                                    <div class="col-lg-12">
-                                                                                                       <input class="form-control" id="semillero" name="semillero" placeholder="Software Libre" type="text" required>
+                                                                                                       <input class="form-control" id="semillero" name="semillero" placeholder="Software Libre" type="text">
                                                                                                    </div>
                                                                                                    </div>
                                                                                                </td>
                                                                                                <td>
                                                                                                    <div class="row">
                                                                                                    <div class="col-lg-12">
-                                                                                                       <input class="form-control" id="clasificacion" name="clasificacion" placeholder="1248" type="number" required>
+                                                                                                       <input class="form-control" id="clasificacion" name="clasificacion" placeholder="1248" type="number">
                                                                                                    </div>
                                                                                                    </div>
                                                                                                </td>
-                                                                                               <td>
-                                                                                                   <div class="btn-group">
-                                                                                                       <button class="btn btn-warning" id="actualizar" name = "requerimiento" value="actualizarGrupo" type="submit">
-                                                                                                           <span class="glyphicon glyphicon-ok"></span>
-                                                                                                       </button>
-                                                                                                   </div>
-                                                                                               </td>
-                                                                                               <td>
-                                                                                                   <div class="btn-group">
-                                                                                                       <button class="btn btn-danger" id="eliminar" name = "requerimiento" value="eliminarGrupo" type="submit">
-                                                                                                           <span class="glyphicon glyphicon-remove"></span>
-                                                                                                       </button>
-                                                                                                   </div>
-                                                                                               </td>
+                                                                                               <td></td>
                                                                                            </tr>
                                                                                        </tbody>
                                                                                    </table>
                                                                                    <div class="btn-group">
-                                                                                       <button class="btn btn-success" id="agregar" name = "requerimiento" value="agregarGrupo" type="submit">Agregar Grupo
+                                                                                       <button class="btn btn-success" id="agregar" name = "requerimiento" value="agregarGrupo-0" type="submit">Agregar Grupo
                                                                                            <span class="glyphicon glyphicon-plus-sign"></span>
                                                                                        </button>
                                                                                    </div>
@@ -191,6 +188,7 @@
                                                                    </div>
                                                                    </div>
                                                                    </div>
+                                                    </form>
                                                                    </div>
                                         </div>
                                     </div>

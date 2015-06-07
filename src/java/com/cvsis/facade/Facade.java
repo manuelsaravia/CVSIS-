@@ -53,4 +53,49 @@ public class Facade {
         AdministrarDocente ad = new AdministrarDocente();
         return ad.eliminarTesis(t,d);
     }
+    
+    public String agregarGrupo(Grupo g, Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.agregarGrupo(g,d);
+    }
+    
+    public String cargarGrupos(Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.cargarGrupos(d);
+    }
+    
+    public String eliminarGrupo(Grupo g, Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.eliminarGrupo(g,d);
+    }
+    
+    public String agregarArticulo(Articulo a, Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.agregarArticulo(a,d);
+    }
+    
+    public String cargarArticulos(Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.cargarArticulos(d);
+    }
+    
+    public String eliminarArticulo(Articulo a, Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.eliminarArticulo(a,d);
+    }
+    
+    public String agregarLibro(Libro l, Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.agregarLibro(l,d);
+    }
+    
+    public String cargarLibros(Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.cargarLibros(d);
+    }
+    
+    public String eliminarLibro(Libro l, Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.eliminarLibro(l,d);
+    }
 }

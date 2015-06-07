@@ -15,13 +15,13 @@
         String codigo = request.getParameter("codigo");
         String correo = request.getParameter("correo");
         String contrasenia = request.getParameter("contrasenia");
-        String nombre = request.getParameter("nombre").toLowerCase();
-        String apellido= request.getParameter("apellido").toLowerCase();
+        String nombre = request.getParameter("nombre").toUpperCase();
+        String apellido= request.getParameter("apellido").toUpperCase();
         String documento= request.getParameter("documento");
         String sexo= request.getParameter("sexo");
         String estadoCivil= request.getParameter("estadoCivil");
         String escolaridad= request.getParameter("escolaridad");
-        String fechaNac= request.getParameter("fechaNac");
+        String fechaNac= request.getParameter("fechaNacimiento");
         String direccion= request.getParameter("direccion");
         String telefono= request.getParameter("telefono");
         String telefonoMovil= request.getParameter("telefonoMovil");

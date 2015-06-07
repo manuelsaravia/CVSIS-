@@ -87,7 +87,7 @@
                                                <span class="caret"></span></a>
                                                <ul class="dropdown-menu">
                                                    <li><a href="administrar/investigacion/cargarGrupos.jsp">Grupos de Investigación</a></li>
-                                                   <li><a href="administrar/investigacion/articulos.jsp">Produccion Bibliografica</a></li>
+                                                   <li><a href="administrar/investigacion/cargarArticulos.jsp">Produccion Bibliografica</a></li>
                                                    <li><a href="administrar/investigacion/eventos.jsp">Eventos</a></li>
                                                </ul>
                                                
