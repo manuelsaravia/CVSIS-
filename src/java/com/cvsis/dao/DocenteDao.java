@@ -6,6 +6,7 @@
 package com.cvsis.dao;
 import com.cvsis.dto.Articulo;
 import com.cvsis.dto.Docente;
+import com.cvsis.dto.Evento;
 import com.cvsis.dto.Grupo;
 import com.cvsis.dto.Libro;
 import com.cvsis.dto.Materia;
@@ -28,6 +29,7 @@ public class DocenteDao {
             tab += "<td>"+m.getNombre()+"</td>";
             tab += "<td>"+m.getSemestre()+"</td></tr>";
             ConexionMysql.desconectar();
+            
             return tab+"-Registro Exitoso";
         }catch(Exception e){
             return "error";
@@ -87,9 +89,12 @@ public class DocenteDao {
                 t.getPrograma()+"','"+t.getEstadoTesis()+"','"+t.getFechaIni()+"','"+t.getFechaFin()+"');";
         try{
             ConexionMysql.conectar();
-            ConexionMysql.ejecutarActualizacionSQL(sql);
+            boolean b =ConexionMysql.ejecutarActualizacionSQL(sql);
             ConexionMysql.desconectar();
-            return "Registro Exitoso";
+            if(b){
+                return "Registro Exitoso";
+            }
+            return "error";
         }catch(Exception e){
             return "error";
         }
@@ -145,9 +150,12 @@ public class DocenteDao {
                 g.getNomGrupo()+"','"+g.getSemillero()+"','"+g.getClasificacion()+"');";
         try{
             ConexionMysql.conectar();
-            ConexionMysql.ejecutarActualizacionSQL(sql);
+            boolean b =ConexionMysql.ejecutarActualizacionSQL(sql);
             ConexionMysql.desconectar();
-            return "Registro Exitoso";
+            if(b){
+                return "Registro Exitoso";
+            }
+            return "error";
         }catch(Exception e){
             return "error";
         }
@@ -197,17 +205,21 @@ public class DocenteDao {
                 a.getTitulo()+"','"+a.getAño()+"');";
         try{
             ConexionMysql.conectar();
-            ConexionMysql.ejecutarActualizacionSQL(sql);
+            boolean b,n=false;
+            b = ConexionMysql.ejecutarActualizacionSQL(sql);
             sql = "SELECT idProducto FROM producto WHERE codDocente = '"+d.getId()+"' AND nombre = '"+a.getTitulo()+"' AND fecha = '"+a.getAño()+"';";
             ArrayList ids = ConexionMysql.getConsultaSQL(sql);
             for(Object m: ids){
                 sql = "INSERT INTO articulo (idProducto,pagInicio,pagFin,revista,issn,idioma,volumen,pais,medio) VALUES ("+
                         "'"+m.toString().split("-")[0]+"','"+a.getPagInicio()+"','"+a.getPagFin()+"','"+a.getRevista()+"','"+a.getIssn()+"','"+
                         a.getIdioma()+"','"+a.getVolumen()+"','"+a.getPais()+"','"+a.getMedio()+"');";
-                ConexionMysql.ejecutarActualizacionSQL(sql);
+                n = ConexionMysql.ejecutarActualizacionSQL(sql);
             }
             ConexionMysql.desconectar();
-            return "Registro Exitoso";
+            if(b&&n){
+                return "Registro Exitoso";
+            }
+            return "error";
         }catch(Exception e){
             return "error";
         }
@@ -271,17 +283,21 @@ public class DocenteDao {
                 l.getTitulo()+"','"+l.getAnio()+"');";
         try{
             ConexionMysql.conectar();
-            ConexionMysql.ejecutarActualizacionSQL(sql);
+            boolean b,n=false;
+            b = ConexionMysql.ejecutarActualizacionSQL(sql);
             sql = "SELECT idProducto FROM producto WHERE codDocente = '"+d.getId()+"' AND nombre = '"+l.getTitulo()+"' AND fecha = '"+l.getAnio()+"';";
             ArrayList ids = ConexionMysql.getConsultaSQL(sql);
             for(Object m: ids){
                 sql = "INSERT INTO libro (idProducto,editorial,mes,isbn,pais,medio,estilo) VALUES ("+
                         "'"+m.toString().split("-")[0]+"','"+l.getEditorial()+"','"+l.getMes()+"','"+l.getIsbn()+"','"+l.getPais()+"','"+
                         l.getMedio()+"','"+l.getEstilo()+"');";
-                ConexionMysql.ejecutarActualizacionSQL(sql);
+                n = ConexionMysql.ejecutarActualizacionSQL(sql);
             }
             ConexionMysql.desconectar();
-            return "Registro Exitoso";
+            if(b&&n){
+                return "Registro Exitoso";
+            }
+            return "error";
         }catch(Exception e){
             return "error";
         }
@@ -332,6 +348,66 @@ public class DocenteDao {
         ConexionMysql.conectar();
         ConexionMysql.ejecutarActualizacionSQL(sql);
         sql = "DELETE FROM producto WHERE idProducto = '"+l.getId()+"';";
+        ConexionMysql.ejecutarActualizacionSQL(sql);
+        ConexionMysql.desconectar();
+        return "Eliminación Exitosa";
+    }
+
+    public String agregarEvento(Evento e, Docente d) {
+        String sql = "INSERT INTO evento (codDocente, ambito,nombre,fechaIni,fechaFin,institucion,lugar,tipo,vinculacion) VALUES ('"+d.getId()+"','"+
+                e.getAmbito()+"','"+e.getNombre()+"','"+e.getFechaIni()+"','"+e.getFechaFin()+"','"+e.getInstitucion()+"','"+e.getLugar()+"','"+e.getTipo()+"','"+e.getVinculacion()+"');";
+        try{
+            ConexionMysql.conectar();
+            boolean b = ConexionMysql.ejecutarActualizacionSQL(sql);
+            ConexionMysql.desconectar();
+            if(b){
+                return "Registro Exitoso";
+            }
+            return "error";
+        }catch(Exception f){
+            return "error";
+        }
+    }
+
+    public String cargarEventos(Docente d) {
+        String sql = "SELECT idEvento,nombre,tipo,ambito,lugar,fechaIni,fechaFin,vinculacion,institucion FROM evento WHERE codDocente = '"+d.getId()+"';";
+        ConexionMysql.conectar();
+        ArrayList ar = ConexionMysql.getConsultaSQL(sql);
+        String tab ="";
+        int i=0;
+        String eventos = "";
+        for(Object m: ar){
+            String evt[] = m.toString().split("-");
+            eventos += evt[0] + ",";
+            tab += "<tr><td>"+evt[1]+"</td>";
+            tab += "<td>"+evt[2]+"</td>";
+            tab += "<td>"+evt[3]+"</td>";
+            tab += "<td>"+evt[4]+"</td>";
+            tab += "<td>"+evt[5]+"</td>";
+            tab += "<td>"+evt[6]+"</td>";
+            tab += "<td>"+evt[7]+"</td>";
+            tab += "<td>"+evt[8]+"</td>";
+            
+            
+            tab += "<td>"+
+                   "<div class=\"btn-group\">"+
+                   "<button class=\"btn btn-danger\" id=\"eliminar\" name = \"requerimiento\" value=\"eliminarEvento-"+i+"\" type=\"submit\">"+
+                   "<span class=\"glyphicon glyphicon-remove\"></span>"+
+                   "</button>"+
+                   "</div>"+
+                   "</td>"+"</tr>";
+            i++;
+        }
+        ConexionMysql.desconectar();
+        if(tab.isEmpty()){
+            return "error";
+        }
+        return tab+";"+eventos;
+    }
+    
+    public String eliminarEvento(Evento e,Docente d){
+        String sql = "DELETE FROM evento WHERE codDocente = '"+d.getId()+"' AND idEvento = '"+e.getId()+"';";
+        ConexionMysql.conectar();
         ConexionMysql.ejecutarActualizacionSQL(sql);
         ConexionMysql.desconectar();
         return "Eliminación Exitosa";

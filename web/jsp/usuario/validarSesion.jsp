@@ -31,6 +31,7 @@
             session.setAttribute("tablaGrupos", "");
             session.setAttribute("tablaArticulos", "");
             session.setAttribute("tablaLibros", "");
+            session.setAttribute("tablaEventos", "");
             //Fin de sesiones
             
             

@@ -88,6 +88,21 @@ public class AdministrarDocente {
         DocenteDao dd = new DocenteDao();
         return dd.eliminarLibro(l,d);
     }
+
+    public String agregarEvento(Evento e, Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.agregarEvento(e,d);
+    }
+
+    public String cargarEventos(Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.cargarEventos(d);
+    }
+
+    public String eliminarEvento(Evento e, Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.eliminarEvento(e,d);
+    }
     
     
 }

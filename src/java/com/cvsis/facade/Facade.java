@@ -98,4 +98,19 @@ public class Facade {
         AdministrarDocente ad = new AdministrarDocente();
         return ad.eliminarLibro(l,d);
     }
+    
+    public String agregarEvento(Evento e, Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.agregarEvento(e,d);
+    }
+    
+    public String cargarEventos(Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.cargarEventos(d);
+    }
+    
+    public String eliminarEvento(Evento e, Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.eliminarEvento(e,d);
+    }
 }
