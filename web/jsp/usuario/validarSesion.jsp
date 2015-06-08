@@ -12,6 +12,7 @@
     String contrasenia = request.getParameter("contrasenia");
     
     if(tipo.equals("1")){
+        if(!correo.isEmpty() || !contrasenia.isEmpty()){
         user.setCorreo(correo);
         user.setContrasenia(contrasenia);
         String datos = facade.validarSesion(user);
@@ -32,16 +33,46 @@
             session.setAttribute("tablaArticulos", "");
             session.setAttribute("tablaLibros", "");
             session.setAttribute("tablaEventos", "");
+            session.setAttribute("tablaSoftwares", "");
+            session.setAttribute("tablaSpins", "");
+            session.setAttribute("tablaConsultorias", "");
             //Fin de sesiones
             
             
             response.sendRedirect("../docente/inicioDocente.jsp");
         }
         else{
-            session.setAttribute("Mensaje", "<div class=\"alert alert-danger\" role=\"alert\">Datos Incorrectos</div>");
+            session.setAttribute("Mensaje", "<div class=\"alert alert-warning\" role=\"alert\">Datos Incorrectos</div>");
+            response.sendRedirect("iniciarSesion.jsp");
+        }
+        }
+        else{
+            session.setAttribute("Mensaje", "<div class=\"alert alert-warning\" role=\"alert\">Inconsistencias</div>");
             response.sendRedirect("iniciarSesion.jsp");
         }
         
+    }
+    else{
+        if(tipo.equals("2")){
+            System.out.println("llego a tipo 2");
+            if(!correo.isEmpty() || !contrasenia.isEmpty()){
+            user.setCorreo(correo);
+            user.setContrasenia(contrasenia);
+            String datos = facade.validarSesionAdmin(user);
+            System.out.println("datosss = "+datos);
+            if(!datos.equals("error")){
+                response.sendRedirect("inicioAdmin.jsp");
+            }
+            else{
+                session.setAttribute("Mensaje", "<div class=\"alert alert-danger\" role=\"alert\">Datos Incorrectos</div>");
+                response.sendRedirect("iniciarSesion.jsp");
+            }
+            }
+            else{
+                session.setAttribute("Mensaje", "<div class=\"alert alert-warning\" role=\"alert\">Inconsistencias</div>");
+                response.sendRedirect("iniciarSesion.jsp");
+            }
+        }
     }
     
     %>

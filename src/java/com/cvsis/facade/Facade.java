@@ -24,6 +24,11 @@ public class Facade {
         return au.validarSesion(u);
     }
     
+    public String validarSesionAdmin(Usuario u){
+        AdministrarUsuario au = new AdministrarUsuario();
+        return au.validarSesionAdmin(u);
+    }
+    
     public String registrarMateria(Materia m, Docente d){
         AdministrarDocente ad = new AdministrarDocente();
         return ad.registrarMateria(m,d);
@@ -112,5 +117,50 @@ public class Facade {
     public String eliminarEvento(Evento e, Docente d){
         AdministrarDocente ad = new AdministrarDocente();
         return ad.eliminarEvento(e,d);
+    }
+    
+    public String agregarSoftware(Software s, Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.agregarSoftware(s,d);
+    }
+    
+    public String cargarSoftwares(Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.cargarSoftwares(d);
+    }
+    
+    public String eliminarSoftware(Software s, Docente d){
+         AdministrarDocente ad = new AdministrarDocente();
+        return ad.eliminarSoftware(s,d);
+    }
+    
+    public String agregarSpin(SpinOff s, Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.agregarSpin(s,d);
+    }
+    
+    public String cargarSpins(Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.cargarSpins(d);
+    }
+    
+    public String eliminarSpin(SpinOff s, Docente d){
+         AdministrarDocente ad = new AdministrarDocente();
+        return ad.eliminarSpin(s,d);
+    }
+    
+    public String agregarConsultoria(Consultoria c, Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.agregarConsultoria(c,d);
+    }
+    
+    public String cargarConsultorias(Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.cargarConsultorias(d);
+    }
+    
+    public String eliminarConsultoria(Consultoria c, Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.eliminarConsultoria(c,d);
     }
 }

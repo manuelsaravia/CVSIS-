@@ -24,4 +24,9 @@ public class AdministrarUsuario {
        return ud.validarSesion(u);
     }
     
+    public String validarSesionAdmin(Usuario u) {
+       UsuarioDao ud = new UsuarioDao();
+       return ud.validarSesionAdmin(u);
+    }
+    
 }

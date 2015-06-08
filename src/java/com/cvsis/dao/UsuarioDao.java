@@ -56,4 +56,20 @@ public class UsuarioDao {
         }
     }
     
+    public String validarSesionAdmin(Usuario u) {
+        try{
+            
+            String sql = "SELECT correo FROM usuario WHERE correo = '"+u.getCorreo()+"' AND contrasenia = '"+u.getContrasenia()+"' AND tipo = '2';";
+            System.out.println(sql);
+            ConexionMysql.conectar();
+            ArrayList datos = ConexionMysql.getConsultaSQL(sql);
+            System.out.println(datos.get(0).toString().split("-").toString());
+            
+            ConexionMysql.desconectar();
+            return "yes";
+        }catch(Exception e){
+            return "error";
+        }
+    }
+    
 }

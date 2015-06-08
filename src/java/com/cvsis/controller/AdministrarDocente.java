@@ -103,6 +103,51 @@ public class AdministrarDocente {
         DocenteDao dd = new DocenteDao();
         return dd.eliminarEvento(e,d);
     }
+
+    public String agregarSoftware(Software s, Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.agregarSoftware(s,d);
+    }
+
+    public String cargarSoftwares(Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.cargarSoftwares(d);
+    }
+
+    public String eliminarSoftware(Software s, Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.eliminarSoftware(s,d);
+    }
+
+    public String agregarSpin(SpinOff s, Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.agregarSpin(s,d);
+    }
+
+    public String cargarSpins(Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.cargarSpins(d);
+    }
+
+    public String eliminarSpin(SpinOff s, Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.eliminarSpin(s,d);
+    }
+
+    public String agregarConsultoria(Consultoria c, Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.agregarConsultoria(c,d);
+    }
+
+    public String cargarConsultorias(Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.cargarConsultorias(d);
+    }
+
+    public String eliminarConsultoria(Consultoria c, Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.eliminarConsultoria(c,d);
+    }
     
     
 }

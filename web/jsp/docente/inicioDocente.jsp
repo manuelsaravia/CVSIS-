@@ -96,9 +96,9 @@
                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Produccion Tecnologica
                                                <span class="caret"></span></a>
                                                <ul class="dropdown-menu">
-                                                   <li><a href="administrar/tecnologica/consultoria.jsp">Consultoria-Asesoria</a></li>
-                                                   <li><a href="administrar/tecnologica/software.jsp">Software</a></li>
-                                                   <li><a href="administrar/tecnologica/spinOff.jsp">Spin Off</a></li>
+                                                   <li><a href="administrar/tecnologica/cargarConsultorias.jsp">Consultoria-Asesoria</a></li>
+                                                   <li><a href="administrar/tecnologica/cargarSoftwares.jsp">Software</a></li>
+                                                   <li><a href="administrar/tecnologica/cargarSpins.jsp">Spin Off</a></li>
                                                </ul>
                                                
                                             </li>
