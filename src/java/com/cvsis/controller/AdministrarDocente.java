@@ -168,6 +168,11 @@ public class AdministrarDocente {
         DocenteDao dd = new DocenteDao();
         return dd.eliminarProyecto(p,d);
     }
+
+    public String generarListado(Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.generarListado(d);
+    }
     
     
 }

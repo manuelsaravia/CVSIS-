@@ -37,6 +37,7 @@
             session.setAttribute("tablaSpins", "");
             session.setAttribute("tablaConsultorias", "");
             session.setAttribute("tablaProyectos", "");
+            session.setAttribute("tablaListados", "");
             //Fin de sesiones
             
             

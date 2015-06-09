@@ -48,6 +48,7 @@
             String pos = btnn.split("-")[1];
             String art[] = session.getAttribute("libros").toString().split(",");
             String arti = art[Integer.parseInt(pos)];
+            System.out.println(arti);
             libro.setId(arti);
             docente.setId(session.getAttribute("idDocente").toString());
             String dele = facade.eliminarLibro(libro,docente);

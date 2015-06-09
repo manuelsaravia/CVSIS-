@@ -183,4 +183,9 @@ public class Facade {
         AdministrarDocente ad = new AdministrarDocente();
         return ad.eliminarProyecto(p,d);
     }
+    
+    public String generarListado(Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.generarListado(d);
+    }
 }
