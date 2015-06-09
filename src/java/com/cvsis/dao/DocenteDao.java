@@ -1114,4 +1114,12 @@ public class DocenteDao {
         System.out.println(tab);
         return tab;
     }
+
+    public String consultarDatos(Docente d) {
+        String sql = "SELECT d.codigo,u.correo,u.contrasenia,d.nombre,d.apellido,d.documento,sexo,estadoCivil,escolaridad,fechaNac,direccion,telefono,telefonoMovil FROM docente d, usuario u WHERE d.idDocente = '"+d.getId()+"' AND u.codDocente = '"+d.getId()+"';";
+        ConexionMysql.conectar();
+        ArrayList r = ConexionMysql.getConsultaSQL(sql);
+        ConexionMysql.desconectar();
+        return r.get(0).toString();
+    }
 }

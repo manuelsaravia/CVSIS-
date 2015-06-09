@@ -19,6 +19,16 @@ public class Facade {
         return au.registrarUsuario(u,d);
     }
     
+    public boolean actualizarUsuario(Usuario u, Docente d){
+        AdministrarUsuario au = new AdministrarUsuario();
+        return au.actualizarUsuario(u,d);
+    }
+    
+    public String consultarDatos(Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.consultarDatos(d);
+    }
+    
     public String validarSesion(Usuario u){
         AdministrarUsuario au = new AdministrarUsuario();
         return au.validarSesion(u);

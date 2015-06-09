@@ -173,6 +173,11 @@ public class AdministrarDocente {
         DocenteDao dd = new DocenteDao();
         return dd.generarListado(d);
     }
+
+    public String consultarDatos(Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.consultarDatos(d);
+    }
     
     
 }

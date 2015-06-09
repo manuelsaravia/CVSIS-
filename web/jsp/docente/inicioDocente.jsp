@@ -65,6 +65,15 @@
                 </div>
             
                             <div class="row">
+                                 <br>
+                <%
+                    if (session.getAttribute("Mensaje") == null) {
+                        session.setAttribute("Mensaje", "");
+                    }
+                    out.print(session.getAttribute("Mensaje"));
+                    session.setAttribute("MensajeRecuperar", "");
+                    session.setAttribute("Mensaje", "");
+                %>
                                 
                                 <div class="col-md-3" id="menu">
                                     

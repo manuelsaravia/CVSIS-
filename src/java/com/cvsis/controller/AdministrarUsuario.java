@@ -28,5 +28,10 @@ public class AdministrarUsuario {
        UsuarioDao ud = new UsuarioDao();
        return ud.validarSesionAdmin(u);
     }
+
+    public boolean actualizarUsuario(Usuario u, Docente d) {
+        UsuarioDao ud = new UsuarioDao();
+        return ud.actualizarUsuario(u,d);
+    }
     
 }

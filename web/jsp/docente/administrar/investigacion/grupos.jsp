@@ -85,8 +85,8 @@
                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Docencía
                                                <span class="caret"></span></a>
                                                <ul class="dropdown-menu">
-                                                   <li><a href="#">Materias</a></li>
-                                                   <li><a href="#">Formación</a></li>
+                                                   <li><a href="../docencia/cargarMaterias.jsp">Materias</a></li>
+                                                   <li><a href="../docencia/cargarFormacion.jsp">Formación</a></li>
                                                </ul>
                                                
                                             </li>
@@ -94,9 +94,9 @@
                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Investigacion
                                                <span class="caret"></span></a>
                                                <ul class="dropdown-menu">
-                                                   <li><a href="#">Grupos de Investigación</a></li>
-                                                   <li><a href="#">Produccion Bibliografica</a></li>
-                                                   <li><a href="#">Eventos</a></li>
+                                                   <li><a href="../investigacion/cargarGrupos.jsp">Grupos de Investigación</a></li>
+                                                   <li><a href="../investigacion/cargarArticulos.jsp">Produccion Bibliografica</a></li>
+                                                   <li><a href="../investigacion/cargarEventos.jsp">Eventos</a></li>
                                                </ul>
                                                
                                             </li>
@@ -104,14 +104,14 @@
                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Produccion Tecnologica
                                                <span class="caret"></span></a>
                                                <ul class="dropdown-menu">
-                                                   <li><a href="#">Consultoria-Asesoria</a></li>
-                                                   <li><a href="#">Software</a></li>
-                                                   <li><a href="#">Spin Off</a></li>
+                                                   <li><a href="../tecnologica/cargarConsultorias.jsp">Consultoria-Asesoria</a></li>
+                                                   <li><a href="../tecnologica/cargarSoftwares">Software</a></li>
+                                                   <li><a href="../tecnologica/cargarSpins">Spin Off</a></li>
                                                </ul>
                                                
                                             </li>
                                             <li>
-                                                <a href="#">Proyectos</a>
+                                                <a href="../proyectos/cargarProyectos.jsp">Proyectos</a>
                                             </li>
                                         </ul>
                                     </li>

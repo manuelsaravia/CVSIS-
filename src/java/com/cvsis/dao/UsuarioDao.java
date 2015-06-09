@@ -71,5 +71,17 @@ public class UsuarioDao {
             return "error";
         }
     }
+
+    public boolean actualizarUsuario(Usuario u, Docente d) {
+        String sql = "UPDATE usuario SET correo = '"+u.getCorreo()+"', contrasenia= '"+u.getContrasenia()+"' WHERE codDocente = '"+d.getId()+"';";
+        ConexionMysql.conectar();
+        boolean b = ConexionMysql.ejecutarActualizacionSQL(sql);
+        sql = "UPDATE docente SET codigo='"+d.getCodigo()+"', nombre='"+d.getNombre()+"', apellido='"+d.getApellido()+"', documento='"+d.getDocumento()+"', "+
+                "sexo='"+d.getSexo()+"', estadoCivil='"+d.getEstadoCivil()+"', escolaridad='"+d.getEscolaridad()+"', fechaNac='"+d.getFechaNac()+"', "+
+                "direccion='"+d.getDireccion()+"', telefono='"+d.getTelefono()+"', telefonoMovil='"+d.getTelefonoMovil()+"' WHERE idDocente ='"+d.getId()+"';";
+        boolean c = ConexionMysql.ejecutarActualizacionSQL(sql);
+        
+        return b&&c;
+    }
     
 }
