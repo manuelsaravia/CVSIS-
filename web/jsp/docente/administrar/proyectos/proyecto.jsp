@@ -43,236 +43,219 @@
     </head>
     <body>
         <div  class="container">
-            <header>
+        <header>
                 <figure>
                     <img alt="CVSIS" class="img-responsive" id="banner_cursoft" src="../../../../img/banne_cursoft.png">
                 </figure>
             </header>
 
             <br>
-
-            <div class="row">
-
-                <div class="col-xs-6 col-sm-4"></div>
-                <div class="col-xs-6 col-sm-4 hidden-xs"></div>
-                <div class="col-xs-6 col-sm-4">
-                    <div class="well well-sm" align="right">
-                        <% out.print(session.getAttribute("nombre") + " " + session.getAttribute("apellido"));%>
-                        <a href="../../../usuario/iniciarSesion.jsp">  (Cerrar sesión)</a>
+            
+                <div class="row">
+                    
+                    <div class="col-xs-6 col-sm-4"></div>
+                    <div class="col-xs-6 col-sm-4 hidden-xs"></div>
+                    <div class="col-xs-6 col-sm-4">
+                        <div class="well well-sm" align="right">
+                            <% out.print(session.getAttribute("nombre") + " " + session.getAttribute("apellido"));%>
+                            <a href="../../../usuario/iniciarSesion.jsp">  (Cerrar sesión)</a>
+                        </div>
+                            
                     </div>
-
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-3" id="menu">
-
-
-                    <ul class="nav nav-pills nav-stacked">
-                        <li role="presentation" class="active">
-                            <a href="#">Administrar</a>
-                            <ul class="nav nav-tabs-justified nav-second-level">
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Docencía
-                                        <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="../docencia/materias.jsp">Materias</a></li>
-                                        <li><a href="../docencia/formacion.jsp">Formación</a></li>
-                                    </ul>
-
-                                </li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Investigacion
-                                        <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="../investigacion/grupos.jsp">Grupos de Investigación</a></li>
-                                        <li><a href="#">Produccion Bibliografica</a></li>
-                                        <li><a href="../investigacion/eventos.jsp">Eventos</a></li>
-                                    </ul>
-
-                                </li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Produccion Tecnologica
-                                        <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="../tecnologica/consultoria.jsp">Consultoria-Asesoria</a></li>
-                                        <li><a href="../tecnologica/software.jsp">Software</a></li>
-                                        <li><a href="../tecnologica/spinOff.jsp">Spin Off</a></li>
-                                    </ul>
-
-                                </li>
-                                <li>
-                                    <a href="../proyectos/proyecto.jsp">Proyectos</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-
-
-                </div>
-                <div class="col-md-9">
-                    <ol class="breadcrumb">
-                        <li><a href="../../inicioDocente.jsp">Home</a></li>
-                        <li class="active">Proyectos</li>
-
-                    </ol>
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-
+            
                             <div class="row">
+                                <br>
+                <%
+                    if (session.getAttribute("Mensaje") == null) {
+                        session.setAttribute("Mensaje", "");
+                    }
+                    out.print(session.getAttribute("Mensaje"));
+                    session.setAttribute("MensajeRecuperar", "");
+                    session.setAttribute("Mensaje", "");
+                %>
+                                <div class="col-md-3" id="menu">
+                                    
+                            
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li role="presentation" class="active">
+                                        <a href="#">Administrar</a>
+                                        <ul class="nav nav-tabs-justified nav-second-level">
+                                            <li class="dropdown">
+                                               <a class="dropdown-toggle" data-toggle="dropdown" href="#">Docencía
+                                               <span class="caret"></span></a>
+                                               <ul class="dropdown-menu">
+                                                   <li><a href="#">Materias</a></li>
+                                                   <li><a href="#">Formación</a></li>
+                                               </ul>
+                                               
+                                            </li>
+                                            <li class="dropdown">
+                                               <a class="dropdown-toggle" data-toggle="dropdown" href="#">Investigacion
+                                               <span class="caret"></span></a>
+                                               <ul class="dropdown-menu">
+                                                   <li><a href="#">Grupos de Investigación</a></li>
+                                                   <li><a href="#">Produccion Bibliografica</a></li>
+                                                   <li><a href="#">Eventos</a></li>
+                                               </ul>
+                                               
+                                            </li>
+                                            <li class="dropdown">
+                                               <a class="dropdown-toggle" data-toggle="dropdown" href="#">Produccion Tecnologica
+                                               <span class="caret"></span></a>
+                                               <ul class="dropdown-menu">
+                                                   <li><a href="#">Consultoria-Asesoria</a></li>
+                                                   <li><a href="#">Software</a></li>
+                                                   <li><a href="#">Spin Off</a></li>
+                                               </ul>
+                                               
+                                            </li>
+                                            <li>
+                                                <a href="#">Proyectos</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            
                                 
-                                <form action="../../leerProyecto.jsp" method="post" role="form" class="form-horizontal">
-                                    <div align="center">
-                                        <div class="col-md-13 col-md-offset-0">
-                                            <div class="panel panel-default">
-                                                <!-- Default panel contents -->
-                                                <div class="panel-heading">Registrar Proyecto </div>
-                                                <div class="panel-body">
-                                                    <!-- Table -->
-                                                    <div class="table-responsive">
-                                                        <div align="center">
-                                                            <table class="table">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Codigo Del Docente</th> 
-                                                                        <th>Codigo Del Proyecto</th> 
-                                                                        <th>Nombre Del Proyecto</th>
-                                                                        <th>Acta Institucional</th>
-                                                                       
-                                                                        <th>Tipo De Proyecto</th>
-                                                                         <th>Institucion Financiera</th> 
-                                                                         <th>Fecha Inicio</th>
-                                                                          <th>Fecha Fin</th>
-                                                                        <th></th>
-                                                                        <th></th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody class="tablas">
-
-                                                                    <tr>
-                                                                         <td>
-                                                                            <div class="row">
-                                                                                <div class="col-md-10">
-                                                                                    <input class="form-control" id="codigoDocente" name="codigoDocente" placeholder="15624" type="number" required>
-                                                                                </div>
-                                                                            </div>
-                                                                        </td>
-                                                                        <td>
-                                                                            <div class="row">
-                                                                                <div class="col-md-10">
-                                                                                    <input class="form-control" id="codigoProyecto" name="codigoProyecto" placeholder="15624" type="number" required>
-                                                                                </div>
-                                                                            </div>
-                                                                        </td>
-                                                                        <td>
-                                                                            <div class="row">
-                                                                                <div class="col-md-12">
-                                                                                    <input class="form-control" id="nombreProyecto" name="nombreProyecto" placeholder="CVSIS" type="text" required>
-                                                                                </div>
-                                                                            </div>
-                                                                        </td>
-                                                                        <td>
-                                                                            <div class="row">
-                                                                                <div class="col-md-12">
-                                                                                    <input class="form-control" id="actaInstitucional" name="actaInstitucional" placeholder="01" type="number" required>
-                                                                                </div>
-                                                                            </div>
-                                                                        </td>
-                                                                         <td>
-                                                                                                   <select class="form-control" id="tipoProyecto" name="tiporoyecto">
-                                                                                                       <option value="1">Institucional</option>
-                                                                                                       <option value="2">Investigacion y Desarrollo</option>
-                                                                                                       <option value="3">Extencion</option>
-                                                                                                   </select>
-                                                                                               </td>
-                                                                                               <td>
-                                                                            <div class="row">
-                                                                                <div class="col-md-12">
-                                                                                    <input class="form-control" id="institucionFinanciera" name="institucionFinanciera" placeholder="UFPS" type="text" required>
-                                                                                </div>
-                                                                            </div>
-                                                                        </td>
-                                                                                               <td>
-                                                                                                   <div class="row">
-                                                                                                   <div class="col-lg-12">
-                                                                                                       <input class="form-control" id="fechaIni" name="fechaIni" placeholder="26/07/2005" type="text" required>
-                                                                                                   </div>
-                                                                                                   </div>
-                                                                                               </td>
-                                                                                               <td>
-                                                                                                   <div class="row">
-                                                                                                   <div class="col-lg-12">
-                                                                                                       <input class="form-control" id="fechaFin" name="fechaFin" placeholder="26/07/2010" type="text" required>
-                                                                                                   </div>
-                                                                                                   </div>
-                                                                                               </td>
-                                                                        <td>
-                                                                            <div class="btn-group">
-                                                                                <button class="btn btn-warning" id="actualizar" name = "requerimiento" value="actualizarProyecto" type="submit">
-                                                                                    <span class="glyphicon glyphicon-ok"></span>
-                                                                                </button>
-                                                                            </div>
-                                                                        </td>
-                                                                        <td>
-                                                                            <div class="btn-group">
-                                                                                <button class="btn btn-danger" id="eliminar" name = "requerimiento" value="eliminarProyecto" type="submit">
-                                                                                    <span class="glyphicon glyphicon-remove"></span>
-                                                                                </button>
-                                                                            </div>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                            <div class="btn-group">
-                                                                <button class="btn btn-success" id="agregar" name = "requerimiento" value="agregarProyecto" type="submit">Agregar Proyecto
-                                                                    <span class="glyphicon glyphicon-plus-sign"></span>
-                                                                </button>
-                                                            </div>
-                                                        </div>
+                            </div>
+                                <!-- Aca esta todo el contenido de la pagina -->
+                                
+                                <div class="col-md-9">
+                                    <ol class="breadcrumb">
+                                        <li><a href="../../inicioDocente.jsp">Home</a></li>
+                                        <li class="active">Proyectos</li>
+                                        
+                                    </ol>
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                         
+                                            
+                                                    <div class="row">
+                                                        <form action="leerProyecto.jsp" method="post" role="form" class="form-horizontal">
+                                                                                                       <div align="center">
+                                                                                                           <div class="col-md-12 col-md-offset-0">
+                                                                                                               <div class="panel panel-default">
+                                                                                                                   <!-- Default panel contents -->
+                                                                                                                   <div class="panel-heading">Proyectos</div>
+                                                                                                                   <div class="panel-body">
+                                                                                                                       <!-- Table -->
+                                                                                                                       <div class="table-responsive">
+                                                                                                                           <div align="center">
+                                                                                                                               <table class="table">
+                                                                                                                                   <thead>
+                                                                                                                                       <tr>
+                                                                                                                                           <th>Tipo</th> 
+                                                                                                                                           <th>Nombre</th>
+                                                                                                                                           <th>Codigo</th>
+                                                                                                                                           <th>Fecha Inicio</th>
+                                                                                                                                           <th>Fecha Fin</th>
+                                                                                                                                           <th>Resumen</th>
+                                                                                                                                           <th>Institucion Financiera</th>
+                                                                                                                                           <th>Producto</th>
+                                                                                                                                           <th></th>
+                                                                                                                                       </tr>
+                                                                                                                                   </thead>
+                                                                                                                                   <tbody class="tablas"> 
+                                                                                                                                       <% out.println(session.getAttribute("tablaProyectos").toString()); %>
+                                                                                                                                       <tr>       
+                                                                                                                                           <td>
+                                                                                                                                               <select class="form-control" id="tipo" name="tipo">
+                                                                                                                                                   <option value="Institucional">Institucional</option>
+                                                                                                                                                   <option value="Investigacion">Investigacion</option>
+                                                                                                                                                   <option value="Desarrollo">Desarrollo</option>
+                                                                                                                                                   <option value="Extencion">Extencion</option>
+                                                                                                                                               </select>
+                                                                                                                                           </td>
+                                                                                                                                           <td>
+                                                                                                                                               <div class="row">
+                                                                                                                                                    <div class="col-lg-12">
+                                                                                                                                                        <input class="form-control" id="nombre" name="nombre" placeholder="CURSOFT" type="text">
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                           </td>
+                                                                                                                                           <td>
+                                                                                                                                               <div class="row">
+                                                                                                                                                    <div class="col-lg-12">
+                                                                                                                                                        <input class="form-control" id="codigo" name="codigo" placeholder="847" type="number">
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                           </td>
+                                                                                                                                           <td>
+                                                                                                                                               <div class="row">
+                                                                                                                                                    <div class="col-lg-12">
+                                                                                                                                                        <input class="form-control" id="fechaIni" name="fechaIni" placeholder="2/2015" type="text">
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                           </td>
+                                                                                                                                           <td>
+                                                                                                                                               <div class="row">
+                                                                                                                                                    <div class="col-lg-12">
+                                                                                                                                                        <input class="form-control" id="fechaFin" name="fechaFin" placeholder="2/2015" type="text">
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                           </td>
+                                                                                                                                           <td>
+                                                                                                                                               <div class="row">
+                                                                                                                                                    <div class="col-lg-12">
+                                                                                                                                                        <textarea cols="11" rows="3" name="resumen"></textarea>
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                           </td>
+                                                                                                                                           <td>
+                                                                                                                                               <div class="row">
+                                                                                                                                                    <div class="col-lg-12">
+                                                                                                                                                        <input class="form-control" id="institucion" name="institucion" placeholder="ICETEX" type="text">
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                           </td>
+                                                                                                                                           <td>
+                                                                                                                                               <select class="form-control" id="procuto" name="producto">
+                                                                                                                                                   <% out.println(session.getAttribute("productosProyecto").toString()); %>
+                                                                                                                                               </select>
+                                                                                                                                           </td>
+                                                                                                                                           <td></td>
+                                                                                                                                       </tr>
+                                                                                                                                   </tbody>
+                                                                                                                               </table>
+                                                                                                                               <div class="btn-group">
+                                                                                                                                   <button class="btn btn-success" id="agregar" name = "requerimiento" value="agregarProyecto-0" type="submit">Agregar Proyecto
+                                                                                                                                       <span class="glyphicon glyphicon-plus-sign"></span>
+                                                                                                                                   </button>
+                                                                                                                               </div>
+                                                                                                                           </div>
+                                                                                                                       </div>
+                                                                                                                   </div>
+                                                                                                               </div>
+                                                                                                           </div>
+                                                                                                       </div>
+                                                        </form>
+                                                                                                   
                                                     </div>
                                                 </div>
                                             </div>
+                                              
+                                            
                                         </div>
                                     </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div id="footer" align="center">                
+                                </div>
+                                
+            <div id="footer" align="center">                
             <footer>
                 <p><strong>Copyright © 2014. Programa de Ingeniería de Sistemas - UFPS</strong></p>
                 <p>Desarrollado por: <span class="glyphicon glyphicon-user"></span><strong> Manuel Saravia</strong></p>
             </footer>
-        </div>
-        <script src="../../../../js/jquery.js"></script>
-        <script src="../../../../js/bootstrap.min.js"></script>
-
-
-
-
+            </div>
+        
+        
+        
+        
+        
+       <script src="../../../../js/jquery.js"></script>
+	<script src="../../../../js/bootstrap.min.js"></script>
+                            
+                            
+                            
+                            
     </body>
-
 </html>

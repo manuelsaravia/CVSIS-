@@ -11,6 +11,7 @@ import com.cvsis.dto.Evento;
 import com.cvsis.dto.Grupo;
 import com.cvsis.dto.Libro;
 import com.cvsis.dto.Materia;
+import com.cvsis.dto.Proyecto;
 import com.cvsis.dto.Software;
 import com.cvsis.dto.SpinOff;
 import com.cvsis.dto.Tesis;
@@ -605,6 +606,84 @@ public class DocenteDao {
 
     public String eliminarConsultoria(Consultoria c, Docente d) {
         String sql = "DELETE FROM consulta WHERE codDocente = '"+d.getId()+"' AND idConsulta = '"+c.getId()+"';";
+        ConexionMysql.conectar();
+        ConexionMysql.ejecutarActualizacionSQL(sql);
+        ConexionMysql.desconectar();
+        return "Eliminación Exitosa";
+    }
+
+    public String cargarProyectos(Docente d) {
+        String sql = "SELECT idProyecto,tipo,nombre,codActa,fechaIni,fechaFin,resumen,instFinanciera,producto FROM proyecto WHERE codDocente = '"+d.getId()+"';";
+        ConexionMysql.conectar();
+        ArrayList ar = ConexionMysql.getConsultaSQL(sql);
+        String tab ="";
+        int i=0;
+        String eventos = "";
+        for(Object m: ar){
+            String evt[] = m.toString().split("-");
+            eventos += evt[0] + ",";
+            tab += "<tr><td>"+evt[1]+"</td>";
+            tab += "<td>"+evt[2]+"</td>";
+            tab += "<td>"+evt[3]+"</td>";
+            tab += "<td>"+evt[4]+"</td>";
+            tab += "<td>"+evt[5]+"</td>";
+            tab += "<td>"+evt[6]+"</td>";
+            tab += "<td>"+evt[7]+"</td>";
+            tab += "<td>"+evt[8]+"</td>";
+            
+            tab += "<td>"+
+                   "<div class=\"btn-group\">"+
+                   "<button class=\"btn btn-danger\" id=\"eliminar\" name = \"requerimiento\" value=\"eliminarProyecto-"+i+"\" type=\"submit\">"+
+                   "<span class=\"glyphicon glyphicon-remove\"></span>"+
+                   "</button>"+
+                   "</div>"+
+                   "</td>"+"</tr>";
+            i++;
+        }
+        ConexionMysql.desconectar();
+        if(tab.isEmpty()){
+            return "error";
+        }
+        return tab+";"+eventos;
+    }
+
+    public String listarPrductos(Docente d) {
+        String sql = "SELECT nombre FROM producto WHERE codDocente = '"+d.getId()+"';";
+        ConexionMysql.conectar();
+        ArrayList ar = ConexionMysql.getConsultaSQL(sql);
+        String tab= "<option value=\"Sin Producto\">--</option>";
+        
+      
+        for(Object m: ar){
+            String evt[] = m.toString().split("-");
+            
+            tab += "<option value=\""+evt[0]+"\">"+evt[0]+"</option>";
+            
+        }
+        ConexionMysql.desconectar();
+        
+        return tab;
+    }
+
+    public String agregarProyecto(Proyecto p, Docente d) {
+        String sql = "INSERT INTO proyecto (codDocente,tipo,nombre,codActa,fechaIni,fechaFin,resumen,instFinanciera,producto) VALUES ('"+d.getId()+"','"+
+                p.getTipo()+"','"+p.getNombre()+"','"+p.getCodigo()+"','"+p.getFechaIni()+"','"+p.getFechafin()+"','"+p.getResumen()
+                +"','"+p.getInstitucion()+"','"+p.getProducto()+"');";
+        try{
+            ConexionMysql.conectar();
+            boolean b = ConexionMysql.ejecutarActualizacionSQL(sql);
+            ConexionMysql.desconectar();
+            if(b){
+                return "Registro Exitoso";
+            }
+            return "error";
+        }catch(Exception f){
+            return "error";
+        }
+    }
+
+    public String eliminarProyecto(Proyecto p, Docente d) {
+        String sql = "DELETE FROM proyecto WHERE codDocente = '"+d.getId()+"' AND idProyecto = '"+p.getId()+"';";
         ConexionMysql.conectar();
         ConexionMysql.ejecutarActualizacionSQL(sql);
         ConexionMysql.desconectar();

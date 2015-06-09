@@ -163,4 +163,24 @@ public class Facade {
         AdministrarDocente ad = new AdministrarDocente();
         return ad.eliminarConsultoria(c,d);
     }
+    
+    public String cargarProyectos(Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.cargarProyectos(d);
+    }
+    
+    public String listarProductos(Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.listarProductos(d);
+    }
+    
+    public String agregarProyecto(Proyecto p, Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.agregarProyecto(p,d);
+    }
+    
+    public String eliminarProyecto(Proyecto p, Docente d){
+        AdministrarDocente ad = new AdministrarDocente();
+        return ad.eliminarProyecto(p,d);
+    }
 }

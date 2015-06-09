@@ -148,6 +148,26 @@ public class AdministrarDocente {
         DocenteDao dd = new DocenteDao();
         return dd.eliminarConsultoria(c,d);
     }
+
+    public String cargarProyectos(Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.cargarProyectos(d);
+    }
+
+    public String listarProductos(Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.listarPrductos(d);
+    }
+
+    public String agregarProyecto(Proyecto p, Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.agregarProyecto(p,d);
+    }
+
+    public String eliminarProyecto(Proyecto p, Docente d) {
+        DocenteDao dd = new DocenteDao();
+        return dd.eliminarProyecto(p,d);
+    }
     
     
 }

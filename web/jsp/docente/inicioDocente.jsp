@@ -103,7 +103,23 @@
                                                
                                             </li>
                                             <li>
-                                                <a href="administrar/proyectos/proyecto.jsp">Proyectos</a>
+                                                <a href="administrar/proyectos/cargarProyectos.jsp">Proyectos</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                    
+                                    <br>
+                                    <br>
+                                    <ul class="nav nav-pills nav-stacked">
+                                    <li role="presentation" class="active">
+                                        <a href="#">Funciones Adicionales</a>
+                                        <ul class="nav nav-tabs-justified nav-second-level">
+                                            <li>
+                                                <a href="administrar/listados/generarListado.jsp">Listado General</a>
+                                            </li>
+                                            <li>
+                                                <a href="../usuario/cargarActualizacionDatos.jsp">Actualizar Datos</a>
                                             </li>
                                         </ul>
                                     </li>
