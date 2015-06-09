@@ -1111,7 +1111,7 @@ public class DocenteDao {
         
         String tab = tab1 + "<br><br>" + tab2+ "<br><br>" + tab3+ "<br><br>" + tab4+ "<br><br>" + tab5+ "<br><br>" + tab6+ "<br><br>" + tab7+ "<br><br>" + tab8+ "<br><br>" + tab9+ "<br><br>" + tab10;
           
-        System.out.println(tab);
+        
         return tab;
     }
 

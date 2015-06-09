@@ -105,8 +105,8 @@
                                                <span class="caret"></span></a>
                                                <ul class="dropdown-menu">
                                                    <li><a href="../tecnologica/cargarConsultorias.jsp">Consultoria-Asesoria</a></li>
-                                                   <li><a href="../tecnologica/cargarSoftwares">Software</a></li>
-                                                   <li><a href="../tecnologica/cargarSpins">Spin Off</a></li>
+                                                   <li><a href="../tecnologica/cargarSoftwares.jsp">Software</a></li>
+                                                   <li><a href="../tecnologica/cargarSpins.jsp">Spin Off</a></li>
                                                </ul>
                                                
                                             </li>
